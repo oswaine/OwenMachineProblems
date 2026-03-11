@@ -1,3 +1,4 @@
+// Owen Swaine - 20386155
 #include "cuda_runtime.h"
 #include <stdio.h>
 #include <stdlib.h>

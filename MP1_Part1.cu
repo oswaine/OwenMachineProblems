@@ -1,3 +1,5 @@
+// Owen Swaine - 20386155
+
 #include <stdio.h>
 #include <cuda_runtime.h>
 
@@ -32,9 +34,9 @@ int main() {
         printf("Streaming Multiprocessors: %d\n", prop.multiProcessorCount);
         printf("CUDA Cores: %d\n", totalCores);
         printf("Warp Size: %d\n", prop.warpSize);
-        printf("Global Memory: %ld bytes\n", prop.totalGlobalMem);
-        printf("Constant Memory: %ld bytes\n", prop.totalConstMem);
-        printf("Shared Memory per Block: %ld bytes\n", prop.sharedMemPerBlock);
+        printf("Global Memory: %zu bytes\n", prop.totalGlobalMem);
+        printf("Constant Memory: %zu bytes\n", prop.totalConstMem);
+        printf("Shared Memory per Block: %zu bytes\n", prop.sharedMemPerBlock);
         printf("Registers per Block: %d\n", prop.regsPerBlock);
         printf("Max Threads per Block: %d\n", prop.maxThreadsPerBlock);
 
