@@ -11,9 +11,7 @@
 
 #define TOL 1e-3f
 
-// -------------------------
-// TILED KERNEL
-// -------------------------
+// TILED KERNEL based off slides
 __global__ void MatrixMulKernel(float* M, float* N, float* P, int width, int tileWidth)
 {
     // Allocate shared memory dynamically
@@ -93,14 +91,12 @@ int compareResults(float* cpu, float* gpu, int width)
     return 1;
 }
 
-// -------------------------
 // RUN ONE TILE WIDTH
-// -------------------------
 void runTile(int width, int tileWidth)
 {
     if (width % tileWidth != 0)
     {
-        printf("Skipping TILE_WIDTH=%d (not divisible)\n", tileWidth);
+        printf("ERROR TILE_WIDTH=%d (not divisible)\n", tileWidth);
         return;
     }
 
@@ -180,9 +176,8 @@ void runTile(int width, int tileWidth)
     cudaFree(d_P);
 }
 
-// -------------------------
-// MAIN (one full trial)
-// -------------------------
+// MAIN (full trial with all block widths
+// Note to me - repeat this multiple times
 int main(int argc, char** argv)
 {
     srand((unsigned int)time(NULL));
